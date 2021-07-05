@@ -64,14 +64,14 @@ main {
   min-height: calc(100vh - 155px);
 }
 
-main ul {
+main .book-ul {
   max-width: 850px;
   margin: auto;
   list-style: none;
   background-color: #f2f2f2;
 }
 
-main ul li {
+main .book-ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,6 +82,44 @@ main ul li {
       -ms-flex-align: center;
           align-items: center;
   padding: 12px 15px;
+}
+
+main form {
+  margin: 10% auto;
+  max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main form input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+main form button {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+main .contact {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main .contact p {
+  margin-bottom: 20px;
+}
+
+main .contact ul a {
+  text-decoration: none;
 }
 
 footer {
