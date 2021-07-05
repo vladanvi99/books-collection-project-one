@@ -1,18 +1,41 @@
 const addBtn = document.querySelector('.add');
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
+const bookListWrap = document.querySelector('.book-ul');
 
-console.log(bookAuthor);
-const bookCollection = {
-  books: []
+
+let bookCollection = {
+    books:[]
 };
+// GET BOOK COLLECTION FROM LOCALSTORAGE
+function getBooksFromLocalStorage() {
+    if(JSON.parse(localStorage.getItem('bookCollection'))) {
+        bookCollection = JSON.parse(localStorage.getItem('bookCollection'));
+        console.log(bookCollection)
+    }
+}
+getBooksFromLocalStorage();
+// IMPLEMENT BOOKS
+function implementBooks() {
+    bookCollection.books.forEach((book,index) => {
+        bookListWrap.innerHTML += `<li>
+        <div class="book-info">
+          <p><span class="book-title">"${book.title}"</span> by <span class="book-author">${book.author}</span></p>
+        </div>
+        <button type="button" data-key=${index}>Remove</button>
+      </li>`
+    })
+}
+implementBooks();
 
-
-
-function addBook() {
-  console.log("Calling");
-  bookCollection.books.push({ title: bookTitle.value, author: bookAuthor.value });
-  updateLocalStorage();
+// ADD BOOK
+function addBook(e) {
+    if (bookTitle.value.length <= 2 || bookAuthor.value.length <= 2) {
+        e.preventDefault();
+    } else {
+        bookCollection.books.push({ title: bookTitle.value, author: bookAuthor.value });
+        updateLocalStorage();
+    }
 }
 
 function updateLocalStorage() {
@@ -20,8 +43,6 @@ function updateLocalStorage() {
 
 }
 
-
-
-
-
-addBtn.addEventListener('click', () => addBook());
+if (document.querySelector('.add')) {
+    addBtn.addEventListener('click', (e) => addBook(e));
+}
