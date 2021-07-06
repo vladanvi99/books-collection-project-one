@@ -1,9 +1,11 @@
+/* eslint-disable max-classes-per-file */
 document.addEventListener('DOMContentLoaded', () => {
   const addBtn = document.querySelector('.add');
   const bookTitle = document.getElementById('title');
   const bookAuthor = document.getElementById('author');
   const bookListWrap = document.querySelector('.book-ul');
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let removeBtn = [];
 
   class Book {
     constructor(title, author) {
@@ -14,31 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   class Collection {
     booksCollection = {
-        books: []
-      }
-      // IMPLEMENT BOOKS
+      books: [],
+    }
+
+    // IMPLEMENT BOOKS
     implementBooks = () => {
-        bookListWrap.innerHTML = '';
-        this.booksCollection.books.forEach((book, index) => {
-          bookListWrap.innerHTML += `<li>
+      bookListWrap.innerHTML = '';
+      this.booksCollection.books.forEach((book, index) => {
+        bookListWrap.innerHTML += `<li>
             <div class="book-info">
               <p><span class="book-title">"${book.title}"</span> by <span class="book-author">${book.author}</span></p>
             </div>
             <button type="button" class="removeBtn" data-key=${index}>Remove</button>
           </li>`;
-        });
-      }
-      // GET BOOKS FROM LOCAL STORAGE
+      });
+    }
+
+    // GET BOOKS FROM LOCAL STORAGE
     getBooksFromLocalStorage = () => {
-        if (JSON.parse(localStorage.getItem('bookCollection'))) {
-          this.booksCollection = JSON.parse(localStorage.getItem('bookCollection'));
-        }
+      if (JSON.parse(localStorage.getItem('bookCollection'))) {
+        this.booksCollection = JSON.parse(localStorage.getItem('bookCollection'));
       }
-      // UPDATE LOCAL STORE
+    }
+
+    // UPDATE LOCAL STORE
     updateLocalStorage = () => {
-        localStorage.setItem('bookCollection', JSON.stringify(this.booksCollection));
-      }
-      // ADD BOOK
+      localStorage.setItem('bookCollection', JSON.stringify(this.booksCollection));
+    }
+
+    // ADD BOOK
     addBook = (e) => {
       if (bookTitle.value.length <= 2 || bookAuthor.value.length <= 2) {
         e.preventDefault();
@@ -50,7 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Remove the book
     removeBook = (btn) => {
-      this.booksCollection.books = this.booksCollection.books.filter((book, i) => i !== Number(btn.dataset.key));
+      let { books } = this.booksCollection;
+      books = books.filter((book, i) => i !== Number(btn.dataset.key));
+      this.booksCollection.books = books;
       this.updateLocalStorage();
       this.getBooksFromLocalStorage();
       this.implementBooks();
@@ -59,20 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-
   const collection = new Collection();
   collection.getBooksFromLocalStorage();
   if (document.querySelector('.book-ul')) {
     collection.implementBooks();
   }
-  let removeBtn = [...document.querySelectorAll('.removeBtn')];
+  removeBtn = [...document.querySelectorAll('.removeBtn')];
   if (document.querySelector('.add')) {
     addBtn.addEventListener('click', () => collection.addBook());
   }
 
   removeBtn.forEach((button) => button.addEventListener('click', () => {
-    console.log(button);
     collection.removeBook(button);
   }));
 
