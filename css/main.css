@@ -1,0 +1,131 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 44px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  color: #222;
+}
+
+header nav {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #222;
+  font-size: 18px;
+}
+
+header nav .logo a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 15px;
+}
+
+header .time-date {
+  padding: 0 20px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+header .time-date p {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 10px;
+}
+
+main {
+  min-height: calc(100vh - 155px);
+}
+
+main .book-ul {
+  max-width: 850px;
+  margin: auto;
+  list-style: none;
+  background-color: #f2f2f2;
+}
+
+main .book-ul li {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 15px;
+}
+
+main form {
+  margin: 10% auto;
+  max-width: 300px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+main form input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+main form button {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+main .contact {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main .contact p {
+  margin-bottom: 20px;
+}
+
+main .contact ul a {
+  text-decoration: none;
+}
+
+footer {
+  padding: 12px 15px;
+}
