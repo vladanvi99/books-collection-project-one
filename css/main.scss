@@ -1,3 +1,9 @@
+// COLORS
+$darkBlue: #1f1d2b;
+$lighBlue: #252836;
+$orange: #e07612;
+$white: #fff;
+
 * {
   padding: 0;
   margin: 0;
@@ -7,9 +13,9 @@
 h1 {
   font-size: 44px;
   text-align: center;
-  margin-top: 40px;
+  padding-top: 40px;
   margin-bottom: 50px;
-  color: #222;
+  color: $white;
 }
 
 header {
@@ -18,6 +24,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 12px 20px;
+    background-color: $darkBlue;
 
     ul {
       display: flex;
@@ -29,14 +36,57 @@ header {
         a {
           text-decoration: none;
           color: #222;
-          font-size: 18px;
+          font-size: 16px;
+          color: $white;
+          position: relative;
+          padding: 0 10px;
+          &::after {
+            content: ']';
+            position: absolute;
+            display: block;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $orange;
+            opacity: 0;
+            transition: 0.3s;
+          }
+          &::before {
+            content: '[';
+            position: absolute;
+            display: block;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $orange;
+            opacity: 0;
+            transition: 0.3s;
+          }
+          &:hover {
+            color: $orange;
+            &::before {
+              opacity: 1;
+              left: 0;
+              transition: 0.3s;
+            }
+            &::after {
+              opacity: 1;
+              right: 0;
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+      .active {
+        a {
+          color: $orange;
         }
       }
     }
 
     .logo {
       a {
-        color: #222;
+        color: $orange;
         text-decoration: none;
         font-weight: 500;
         font-size: 22px;
@@ -45,33 +95,52 @@ header {
   }
 
   .time-date {
-    padding: 0 20px;
+    padding: 10px 20px;
     display: flex;
     justify-content: flex-end;
+    background-color: $lighBlue;
 
     p {
       display: flex;
       align-items: center;
       gap: 10px;
+      color: $white;
+      font-size: 14px;
     }
   }
 }
 
 main {
-  min-height: calc(100vh - 155px);
-
+  min-height: calc(100vh - 115px);
+  background-color: $lighBlue;
   .book-ul {
     max-width: 850px;
     margin: auto;
     list-style: none;
-    background-color: #f2f2f2;
+    background-color: $darkBlue;
 
     li {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 12px 15px;
+      color: $orange;
+      .removeBtn {
+        color: $white;
+        background-color: $orange;
+        border: 1px solid #e07612;
+        padding: 12px 30px;
+        transition: 0.3s;
+        outline: none;
+        cursor: pointer;
+        &:hover {
+          background-color: transparent;
+          color: $orange;
+          transition: 0.3s;
+        }
+      }
     }
+
   }
 
   form {
@@ -88,6 +157,17 @@ main {
 
     button {
       align-self: flex-end;
+      color: $white;
+      background-color: $orange;
+      border: 1px solid #e07612;
+      padding: 12px 30px;
+      transition: 0.3s;
+      outline: none;
+      &:hover {
+        background-color: transparent;
+        color: $orange;
+        transition: 0.3s;
+      }
     }
   }
 
@@ -109,4 +189,6 @@ main {
 
 footer {
   padding: 12px 15px;
+  background-color: $darkBlue;
+  color: $white;
 }
