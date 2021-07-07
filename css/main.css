@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -15,32 +15,29 @@ h1 {
 
 header nav {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 12px 20px;
   background-color: #1f1d2b;
 }
 
 header nav ul {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   list-style: none;
   gap: 15px;
 }
 
 header nav ul li a {
   text-decoration: none;
-  color: #222;
   font-size: 16px;
   color: #fff;
   position: relative;
@@ -54,7 +51,7 @@ header nav ul li a::after {
   right: 10px;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   color: #e07612;
   opacity: 0;
   -webkit-transition: 0.3s;
@@ -68,11 +65,22 @@ header nav ul li a::before {
   left: 10px;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   color: #e07612;
   opacity: 0;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+header nav .logo a {
+  color: #e07612;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+header nav ul .active a {
+  color: #e07612;
 }
 
 header nav ul li a:hover {
@@ -93,35 +101,22 @@ header nav ul li a:hover::after {
   transition: 0.3s;
 }
 
-header nav ul .active a {
-  color: #e07612;
-}
-
-header nav .logo a {
-  color: #e07612;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 22px;
-}
-
 header .time-date {
   padding: 10px 20px;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   background-color: #252836;
 }
 
 header .time-date p {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 10px;
   color: #fff;
   font-size: 14px;
@@ -138,24 +133,27 @@ main .book-ul {
   list-style: none;
   background-color: #1f1d2b;
   -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 main .book-ul li {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 12px 15px;
   color: #e07612;
   -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+main .contact ul li {
+  color: #fff;
 }
 
 main .book-ul li:last-child {
@@ -185,15 +183,14 @@ main form {
   padding-top: 100px;
   max-width: 300px;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 main form input {
@@ -205,12 +202,12 @@ main form input {
   border: none;
   padding: 0 5px;
   -webkit-box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
-          box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
 }
 
 main form button {
   -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   color: #fff;
   background-color: #e07612;
   border: 1px solid #e07612;
@@ -238,13 +235,8 @@ main .contact p {
   color: #fff;
 }
 
-main .contact ul li {
-  color: #fff;
-}
-
 footer {
   padding: 12px 15px;
   background-color: #1f1d2b;
   color: #fff;
 }
-/*# sourceMappingURL=main.css.map */
