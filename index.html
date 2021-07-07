@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -7,6 +8,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
 </head>
+
 <body>
   <!--HEADER START-->
   <header>
@@ -15,8 +17,6 @@
         <a href="index.html">Awesome Books</a>
       </div>
       <ul>
-        <li class="active"><a href="index.html">List</a></li>
-        <li><a href="addNew.html">Add new</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -30,6 +30,12 @@
     <h1>All Awesome Books</h1>
     <ul class="book-ul">
     </ul>
+
+    <form>
+      <input type="text" id="title" placeholder="title" required minlength="3">
+      <input type="text" id="author" placeholder="author" required minlength="3">
+      <button class="add">Add</button>
+    </form>
   </main>
   <!--MAIN END-->
   <!--FOOTER START-->
@@ -39,4 +45,5 @@
   <!--FOOTER END-->
   <script src='./js/main.js'></script>
 </body>
+
 </html>

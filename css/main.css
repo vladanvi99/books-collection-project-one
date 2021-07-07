@@ -180,7 +180,7 @@ main .book-ul li .removeBtn:hover {
 
 main form {
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 100px 0;
   max-width: 300px;
   display: -webkit-box;
   display: flex;
