@@ -2,9 +2,11 @@
 
 # Books Project One
 
-> Here, you can make you book list.
+> In this project, you can create your  own virtual bookshelf.
+You can also remove books,if you dont like it,right?
 
-![screenshot](./Screenshot_2.png)
+
+![screenshot](./Screenshot.png)
 
 This project is a project for books list.
 

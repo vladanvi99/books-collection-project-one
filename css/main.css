@@ -8,9 +8,9 @@
 h1 {
   font-size: 44px;
   text-align: center;
-  margin-top: 40px;
+  padding-top: 40px;
   margin-bottom: 50px;
-  color: #222;
+  color: #fff;
 }
 
 header nav {
@@ -23,19 +23,7 @@ header nav {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 12px 20px;
-}
-
-header nav ul li a {
-  text-decoration: none;
-  color: #222;
-  font-size: 18px;
-}
-
-header nav .logo a {
-  color: #222;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 22px;
+  background-color: #1f1d2b;
 }
 
 header nav ul {
@@ -48,13 +36,79 @@ header nav ul {
   gap: 15px;
 }
 
+header nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  position: relative;
+  padding: 0 10px;
+}
+
+header nav ul li a::after {
+  content: ']';
+  position: absolute;
+  display: block;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #e07612;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header nav ul li a::before {
+  content: '[';
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #e07612;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header nav .logo a {
+  color: #e07612;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+header nav ul .active a {
+  color: #e07612;
+}
+
+header nav ul li a:hover {
+  color: #e07612;
+}
+
+header nav ul li a:hover::before {
+  opacity: 1;
+  left: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header nav ul li a:hover::after {
+  opacity: 1;
+  right: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 header .time-date {
-  padding: 0 20px;
+  padding: 10px 20px;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  background-color: #252836;
 }
 
 header .time-date p {
@@ -64,17 +118,22 @@ header .time-date p {
   -ms-flex-align: center;
   align-items: center;
   gap: 10px;
+  color: #fff;
+  font-size: 14px;
 }
 
 main {
-  min-height: calc(100vh - 155px);
+  min-height: calc(100vh - 115px);
+  background-color: #252836;
 }
 
 main .book-ul {
   max-width: 850px;
   margin: auto;
   list-style: none;
-  background-color: #f2f2f2;
+  background-color: #1f1d2b;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 main .book-ul li {
@@ -87,10 +146,41 @@ main .book-ul li {
   -ms-flex-align: center;
   align-items: center;
   padding: 12px 15px;
+  color: #e07612;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+main .contact ul li {
+  color: #fff;
+}
+
+main .book-ul li:last-child {
+  border-bottom: none;
+}
+
+main .book-ul li .removeBtn {
+  color: #fff;
+  background-color: #e07612;
+  border: 1px solid #e07612;
+  padding: 12px 30px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+
+main .book-ul li .removeBtn:hover {
+  background-color: transparent;
+  color: #e07612;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 main form {
-  margin: 10% auto;
+  margin: 0 auto;
+  padding: 100px 0;
   max-width: 300px;
   display: -webkit-box;
   display: flex;
@@ -106,11 +196,33 @@ main form {
 main form input {
   width: 100%;
   margin-bottom: 10px;
+  height: 45px;
+  outline: none;
+  border-radius: 2px;
+  border: none;
+  padding: 0 5px;
+  -webkit-box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
 }
 
 main form button {
   -ms-flex-item-align: end;
   align-self: flex-end;
+  color: #fff;
+  background-color: #e07612;
+  border: 1px solid #e07612;
+  padding: 12px 30px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  outline: none;
+  width: 100%;
+}
+
+main form button:hover {
+  background-color: transparent;
+  color: #e07612;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 main .contact {
@@ -120,12 +232,11 @@ main .contact {
 
 main .contact p {
   margin-bottom: 20px;
-}
-
-main .contact ul a {
-  text-decoration: none;
+  color: #fff;
 }
 
 footer {
   padding: 12px 15px;
+  background-color: #1f1d2b;
+  color: #fff;
 }
