@@ -137,6 +137,8 @@ main .book-ul {
   margin: auto;
   list-style: none;
   background-color: #1f1d2b;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 main .book-ul li {
@@ -151,6 +153,13 @@ main .book-ul li {
           align-items: center;
   padding: 12px 15px;
   color: #e07612;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+main .book-ul li:last-child {
+  border-bottom: none;
 }
 
 main .book-ul li .removeBtn {
@@ -172,7 +181,8 @@ main .book-ul li .removeBtn:hover {
 }
 
 main form {
-  margin: 10% auto;
+  margin: 0 auto;
+  padding-top: 100px;
   max-width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -189,6 +199,13 @@ main form {
 main form input {
   width: 100%;
   margin-bottom: 10px;
+  height: 45px;
+  outline: none;
+  border-radius: 2px;
+  border: none;
+  padding: 0 5px;
+  -webkit-box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
 }
 
 main form button {
@@ -201,6 +218,7 @@ main form button {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   outline: none;
+  width: 100%;
 }
 
 main form button:hover {
@@ -217,10 +235,11 @@ main .contact {
 
 main .contact p {
   margin-bottom: 20px;
+  color: #fff;
 }
 
-main .contact ul a {
-  text-decoration: none;
+main .contact ul li {
+  color: #fff;
 }
 
 footer {
