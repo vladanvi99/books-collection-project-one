@@ -1,5 +1,6 @@
-import { DateTime } from './luxon.min.js';
 /* eslint-disable max-classes-per-file */
+import { DateTime } from './luxon.min';
+
 document.addEventListener('DOMContentLoaded', () => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   let removeBtn = [];
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     booksCollection = {
       books: [],
     }
+
     // IMPLEMENT BOOKS
     implementBooks = () => {
       bookListWrap.innerHTML = '';
@@ -78,16 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
           </li>`;
       });
     }
+
     // GET BOOKS FROM LOCAL STORAGE
     getBooksFromLocalStorage = () => {
       if (JSON.parse(localStorage.getItem('bookCollection'))) {
         this.booksCollection = JSON.parse(localStorage.getItem('bookCollection'));
       }
     }
+
     // UPDATE LOCAL STORE
     updateLocalStorage = () => {
       localStorage.setItem('bookCollection', JSON.stringify(this.booksCollection));
     }
+
     // ADD BOOK
     addBook = (e) => {
       if (bookTitle.value.length <= 2 || bookAuthor.value.length <= 2) {
@@ -97,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.updateLocalStorage();
       }
     }
+
     // Remove the book
     removeBook = (btn) => {
       let { books } = this.booksCollection;
@@ -125,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeWrap = document.querySelector('.time-date p');
   function implementTime() {
     const dt = DateTime.now();
-    timeWrap.innerHTML = `<span class="month">${months[dt.month-1]}</span><span class="day">${dt.day}</span><span class="year">${dt.year}</span>${dt.hour}:${dt.minute}:${dt.second}</span>`;
+    timeWrap.innerHTML = `<span class="month">${months[dt.month - 1]}</span><span class="day">${dt.day}</span><span class="year">${dt.year}</span>${dt.hour}:${dt.minute}:${dt.second}</span>`;
     setInterval(implementTime, 1000);
   }
   if (document.querySelector('.time-date p')) {
