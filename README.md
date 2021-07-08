@@ -19,7 +19,7 @@ This project is a project for books list.
 
 ## Live Demo
 
-https://vladanvi99.github.io/books-collection-project-one/
+[live-demo](https://vladanvi99.github.io/books-collection-project-one/) 
 
 ## Authors
 

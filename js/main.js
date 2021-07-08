@@ -32,19 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
                       </li>
                     </ul>
                   </div>
-                </div>`
+                </div>`,
     ]
   }
 
   const screens = new Screens();
   screens.screens.forEach((screen) => {
     mainWrap.innerHTML += screen;
-  })
-  const screenArr = [...document.querySelectorAll('.main-content')]
-  navItems.forEach((item, i) => {
-    item.addEventListener('click', () => display(i));
-  })
+  });
 
+  const screenArr = [...document.querySelectorAll('.main-content')];
 
   function display(content) {
     navItems.forEach((item) => item.parentElement.classList.remove('active'));
@@ -54,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
       screenArr[content].classList.add('display-page');
     });
   }
-
+  navItems.forEach((item, i) => {
+    item.addEventListener('click', () => display(i));
+  });
   const bookListWrap = document.querySelector('.book-ul');
   const addBtn = document.querySelector('.add');
   const bookTitle = document.getElementById('title');
   const bookAuthor = document.getElementById('author');
-
-
   class Book {
     constructor(title, author) {
       this.title = title;
