@@ -1,10 +1,10 @@
+import { DateTime } from './luxon.min.js';
 /* eslint-disable max-classes-per-file */
 document.addEventListener('DOMContentLoaded', () => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   let removeBtn = [];
   const mainWrap = document.querySelector('main.our-content');
   const navItems = [...document.querySelectorAll('.nav-list li a')];
-
   class Screens {
     screens = [
       `<div class="book-list main-content display-page">
@@ -35,14 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`,
     ]
   }
-
+  // DISPLAY COMPONENTS
   const screens = new Screens();
   screens.screens.forEach((screen) => {
     mainWrap.innerHTML += screen;
   });
-
   const screenArr = [...document.querySelectorAll('.main-content')];
-
   function display(content) {
     navItems.forEach((item) => item.parentElement.classList.remove('active'));
     navItems[content].parentElement.classList.add('active');
@@ -64,12 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
       this.author = author;
     }
   }
-
   class Collection {
     booksCollection = {
       books: [],
     }
-
     // IMPLEMENT BOOKS
     implementBooks = () => {
       bookListWrap.innerHTML = '';
@@ -82,19 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
           </li>`;
       });
     }
-
     // GET BOOKS FROM LOCAL STORAGE
     getBooksFromLocalStorage = () => {
       if (JSON.parse(localStorage.getItem('bookCollection'))) {
         this.booksCollection = JSON.parse(localStorage.getItem('bookCollection'));
       }
     }
-
     // UPDATE LOCAL STORE
     updateLocalStorage = () => {
       localStorage.setItem('bookCollection', JSON.stringify(this.booksCollection));
     }
-
     // ADD BOOK
     addBook = (e) => {
       if (bookTitle.value.length <= 2 || bookAuthor.value.length <= 2) {
@@ -104,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         this.updateLocalStorage();
       }
     }
-
     // Remove the book
     removeBook = (btn) => {
       let { books } = this.booksCollection;
@@ -117,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
       removeBtn.forEach((button) => button.addEventListener('click', () => this.removeBook(button)));
     }
   }
-
   const collection = new Collection();
   collection.getBooksFromLocalStorage();
   if (document.querySelector('.book-ul')) {
@@ -127,17 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.add')) {
     addBtn.addEventListener('click', () => collection.addBook());
   }
-
   removeBtn.forEach((button) => button.addEventListener('click', () => {
     collection.removeBook(button);
   }));
-
   // IMPLEMENT TIME AND DATE
   const timeWrap = document.querySelector('.time-date p');
-
   function implementTime() {
-    const time = new Date();
-    timeWrap.innerHTML = `<span class="month">${months[time.getMonth()]}</span><span class="day">${time.getDate()}</span><span class="year">${time.getFullYear()}</span>${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}</span>`;
+    const dt = DateTime.now();
+    timeWrap.innerHTML = `<span class="month">${months[dt.month-1]}</span><span class="day">${dt.day}</span><span class="year">${dt.year}</span>${dt.hour}:${dt.minute}:${dt.second}</span>`;
     setInterval(implementTime, 1000);
   }
   if (document.querySelector('.time-date p')) {
