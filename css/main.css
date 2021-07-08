@@ -42,6 +42,7 @@ header nav ul li a {
   color: #fff;
   position: relative;
   padding: 0 10px;
+  cursor: pointer;
 }
 
 header nav ul li a::after {
@@ -239,4 +240,12 @@ footer {
   padding: 12px 15px;
   background-color: #1f1d2b;
   color: #fff;
+}
+
+.main-content {
+  display: none;
+}
+
+.display-page {
+  display: block;
 }

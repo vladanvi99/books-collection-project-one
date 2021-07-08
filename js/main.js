@@ -1,19 +1,69 @@
 /* eslint-disable max-classes-per-file */
+/* eslint-disable */
+import { DateTime } from './luxon.min.js';
+/* eslint-enable */
 document.addEventListener('DOMContentLoaded', () => {
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let removeBtn = [];
+  const mainWrap = document.querySelector('main.our-content');
+  const navItems = [...document.querySelectorAll('.nav-list li a')];
+  class Screens {
+    screens = [
+      `<div class="book-list main-content display-page">
+                  <h1>All Awesome Books</h1>
+                  <ul class="book-ul">
+                  </ul>
+                </div>`,
+      `<div class="add-new main-content">
+                  <form>
+                    <input type="text" id="title" placeholder="title" required minlength="3">
+                    <input type="text" id="author" placeholder="author" required minlength="3">
+                    <button class="add">Add</button>
+                  </form>
+                </div>`,
+      `<div class="contact-info main-content">
+                  <h1>Contact Information</h1>
+                  <div class="contact">
+                    <p>Do you have any questions or just want to say hello?
+                      <span>You can reach out to us!</span>
+                    </p>
+                    <ul>
+                      <li>our email mail@email.com</li>
+                      <li>our phone number: 004354345345234</li>
+                      <li>our address: Streetname 22, 84604 City,Country
+                      </li>
+                    </ul>
+                  </div>
+                </div>`,
+    ]
+  }
+  // DISPLAY COMPONENTS
+  const screens = new Screens();
+  screens.screens.forEach((screen) => {
+    mainWrap.innerHTML += screen;
+  });
+  const screenArr = [...document.querySelectorAll('.main-content')];
+  function display(content) {
+    navItems.forEach((item) => item.parentElement.classList.remove('active'));
+    navItems[content].parentElement.classList.add('active');
+    screenArr.forEach((item) => {
+      item.classList.remove('display-page');
+      screenArr[content].classList.add('display-page');
+    });
+  }
+  navItems.forEach((item, i) => {
+    item.addEventListener('click', () => display(i));
+  });
+  const bookListWrap = document.querySelector('.book-ul');
   const addBtn = document.querySelector('.add');
   const bookTitle = document.getElementById('title');
   const bookAuthor = document.getElementById('author');
-  const bookListWrap = document.querySelector('.book-ul');
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  let removeBtn = [];
-
   class Book {
     constructor(title, author) {
       this.title = title;
       this.author = author;
     }
   }
-
   class Collection {
     booksCollection = {
       books: [],
@@ -66,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
       removeBtn.forEach((button) => button.addEventListener('click', () => this.removeBook(button)));
     }
   }
-
   const collection = new Collection();
   collection.getBooksFromLocalStorage();
   if (document.querySelector('.book-ul')) {
@@ -76,17 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.add')) {
     addBtn.addEventListener('click', () => collection.addBook());
   }
-
   removeBtn.forEach((button) => button.addEventListener('click', () => {
     collection.removeBook(button);
   }));
-
   // IMPLEMENT TIME AND DATE
   const timeWrap = document.querySelector('.time-date p');
-
   function implementTime() {
-    const time = new Date();
-    timeWrap.innerHTML = `<span class="month">${months[time.getMonth()]}</span><span class="day">${time.getDate()}</span><span class="year">${time.getFullYear()}</span>${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}</span>`;
+    const dt = DateTime.now();
+    timeWrap.innerHTML = `<span class="month">${months[dt.month - 1]}</span><span class="day">${dt.day}</span><span class="year">${dt.year}</span>${dt.hour}:${dt.minute}:${dt.second}</span>`;
     setInterval(implementTime, 1000);
   }
   if (document.querySelector('.time-date p')) {
