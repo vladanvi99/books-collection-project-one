@@ -1,12 +1,48 @@
 /* eslint-disable max-classes-per-file */
 document.addEventListener('DOMContentLoaded', () => {
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let removeBtn = [];
+  const mainWrap = document.querySelector('main.our-content');
+
+  class Screens {
+    screens = [
+      `<div class="book-list main-content display-page">
+                  <h1>All Awesome Books</h1>
+                  <ul class="book-ul">
+                  </ul>
+                </div>`,
+      `<div class="add-new main-content">
+                  <form>
+                    <input type="text" id="title" placeholder="title" required minlength="3">
+                    <input type="text" id="author" placeholder="author" required minlength="3">
+                    <button class="add">Add</button>
+                  </form>
+                </div>`,
+      `<div class="contact-info main-content">
+                  <h1>Contact Information</h1>
+                  <div class="contact">
+                    <p>Do you have any questions or just want to say hello?
+                      <span>You can reach out to us!</span>
+                    </p>
+                    <ul>
+                      <li>our email mail@email.com</li>
+                      <li>our phone number: 004354345345234</li>
+                      <li>our address: Streetname 22, 84604 City,Country
+                      </li>
+                    </ul>
+                  </div>
+                </div>`
+    ]
+  }
+
+  const screens = new Screens();
+  screens.screens.forEach((screen) => {
+    mainWrap.innerHTML += screen;
+  })
+  const bookListWrap = document.querySelector('.book-ul');
   const addBtn = document.querySelector('.add');
   const bookTitle = document.getElementById('title');
   const bookAuthor = document.getElementById('author');
-  const bookListWrap = document.querySelector('.book-ul');
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  let removeBtn = [];
-
   class Book {
     constructor(title, author) {
       this.title = title;
