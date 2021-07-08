@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   let removeBtn = [];
   const mainWrap = document.querySelector('main.our-content');
+  const navItems = [...document.querySelectorAll('.nav-list li a')];
 
   class Screens {
     screens = [
@@ -39,10 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
   screens.screens.forEach((screen) => {
     mainWrap.innerHTML += screen;
   })
+  const screenArr = [...document.querySelectorAll('.main-content')]
+  navItems.forEach((item, i) => {
+    item.addEventListener('click', () => display(i));
+  })
+
+
+  function display(content) {
+    navItems.forEach((item) => item.parentElement.classList.remove('active'));
+    navItems[content].parentElement.classList.add('active');
+    screenArr.forEach((item) => {
+      item.classList.remove('display-page');
+      screenArr[content].classList.add('display-page');
+    });
+  }
+
   const bookListWrap = document.querySelector('.book-ul');
   const addBtn = document.querySelector('.add');
   const bookTitle = document.getElementById('title');
   const bookAuthor = document.getElementById('author');
+
+
   class Book {
     constructor(title, author) {
       this.title = title;
