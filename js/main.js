@@ -1,6 +1,7 @@
 /* eslint-disable max-classes-per-file */
-import { DateTime } from './luxon.min';
-
+/* eslint-disable */
+import { DateTime } from './luxon.min.js';
+/* eslint-enable */
 document.addEventListener('DOMContentLoaded', () => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   let removeBtn = [];
